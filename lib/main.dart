@@ -147,8 +147,11 @@ Widget build(BuildContext context) {
       ),
     );
   }
-  List<Event> _getEventsForDay(DateTime day) {
-  // Return the events for the given day from the _events map
-  return _events[day] ?? [];
-}
+ List<Event> _getEventsForDay(DateTime day) {
+    // Get the date without the time component for comparison
+    final selectedDate = DateTime(day.year, day.month, day.day);
+
+    // Retrieve the events for the given day from the _events map
+    return _events[selectedDate] ?? [];
+  }
 }
